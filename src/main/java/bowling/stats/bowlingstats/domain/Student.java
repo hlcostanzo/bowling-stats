@@ -12,6 +12,6 @@ public class Student
     private String firstName;
     private String lastName;
 
-    private Gender gender;
+    private String gender;
 
 }

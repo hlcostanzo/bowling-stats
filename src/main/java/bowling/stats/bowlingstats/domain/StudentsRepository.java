@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface StudentsRepository extends MongoRepository<Student, Integer>
 {
+    List<Student> findAll();
     Student findByFirstName(String firstName);
-    List<Student> findByGender(Gender gender);
+    List<Student> findByGender(String gender);
     Student save(Student student);
 }

@@ -17,7 +17,7 @@ public class StatsController
     private StudentsRepository studentsRepository;
 
     @RequestMapping("/")
-    public List<String> getStats()
+    public List<String> getStatsForStudent(Integer studentId)
     {
         List<String> response = new ArrayList<>();
         response.add("Hello");
@@ -26,14 +26,20 @@ public class StatsController
         Student holly = studentsRepository.findByFirstName("Holly");
         response.add(holly.toString());
 
-//        Student create = new Student();
-//        create.setId(2);
-//        create.setFirstName("New");
-//        create.setLastName("Student");
-//        create.setGender("Male");
-//
-//        studentsRepository.save(create);
+        Student create = new Student();
+        create.setId(2);
+        create.setFirstName("New");
+        create.setLastName("Student");
+        create.setGender("Male");
+
+        studentsRepository.save(create);
 
         return response;
+    }
+
+    @RequestMapping("/students")
+    public List<Student> getAllStudents()
+    {
+        return studentsRepository.findAll();
     }
 }
